@@ -1,0 +1,257 @@
+/* 
+=========================================================  공통 영역  ==============================================================================
+*/
+
+*{
+    box-sizing: border-box;
+}
+
+
+@media screen and (max-width : 1350px){
+    .contentsProperty p{
+        font-size : 0;
+    }
+}
+
+/*
+ 미디어쿼리로 글자 튀어나오는거 해결하려 했으나, 잘되지 않음.
+/*
+
+
+/* 
+====================================================== section 영역(1 ~ 4)  =======================================================================
+*/
+
+
+/*
+
+1) mainSection css속성
+
+*/
+
+#mainSection{
+    height : 100vh;
+}
+
+#menuArea{
+    background-color : black; height : 10%; 
+    position: relative;
+}
+
+#menuTitle{
+    position : absolute; top : 50%; left : 90px; transform: translate(-50%,-50%); color : #FFFFFFA6; text-decoration: none;
+}
+
+#menuTitle span{
+    color : white;
+}
+
+#menubar-Location{
+    position: absolute; top : 50%; right : -15px; transform: translate(-50%,-50%);
+}
+
+#menubar-Location a{
+    color : white; text-decoration: none;
+}
+
+#slideArea{
+    background-color : #005766; height : 80%; position: relative;
+}
+
+#slideLocation{
+    position : absolute;  top : 50%; left : 50%; transform: translate(-50%,-50%);
+    text-align : center;
+}
+
+#mainTitle{
+    color : #FFFFFFA6; 
+}
+
+#mainTitle span{
+    color : white;
+}
+
+#subTitle{
+    font-size: 100px; color : white;
+}
+
+#buttonArea{
+    background-color : black; height : 10%; position: relative;
+}
+
+#buttonLocation{
+    position : absolute; top : 50%; left : 50%; transform: translate(-50%,-50%);
+}
+
+.slideButton{
+    width : 10px; height : 10px; border : 1px solid; border-radius: 50%; background-color: white; float : left;
+}
+
+.slideButton:not(:first-child){
+    margin-left : 20px;
+}
+
+
+/*
+
+2) introSection css속성
+
+*/
+
+#introSection{
+    height : 100vh; padding: 10vh 0; background-color : #F2F2F2;
+}
+
+#introphotoArea{
+    height : 100%; width : 75%; margin: 0 auto;
+}
+
+#introPhoto-1{
+    background-color :white; width : 47%;  height : 100%; margin-right : 3%; float : left;
+}
+
+#introPhoto-2{
+    background-color :white; width : 47%;  height : 100%; margin-left : 3%; float : left;
+}
+
+.contentsArea{
+    padding : 40px; height : 60%;
+}
+
+.titleProperty{
+    font-size : 12px; text-align: center;
+}
+
+.titleProperty span{
+    color : #999999;
+}
+
+.titleProperty p{
+    font-size : 22px;
+}
+
+.contentsProperty{
+    margin : 40px 0;
+}
+
+.contentsProperty p{
+    font-size : 14px; line-height: 1.5; color : #a6a6a6;
+}
+
+.buttonProperty{
+    margin-top : 55px; text-align: center;
+}
+
+.buttonProperty a{
+    padding : 10px 15px; border : 1px solid #a6a6a6; text-decoration: none; color : black;
+}
+
+/*
+
+3) titleSection css속성
+
+*/
+
+#titleSection{
+    background-color :black; height : 30vh; padding : 10vh 0;
+}
+
+#titleArea{
+    height : 100%; width : 50%; margin: 0 auto;
+}
+
+.titleLocation{
+    text-align: center; position : relative; top : 50%; left : 50%; transform: translate(-50%, -50%);
+}
+
+.titleLocation p:nth-child(1){
+    color : #999999; font-size : 12px;
+}
+
+.titleContents:last-child{
+    color : white; font-size : 22px;
+}
+
+
+/* 
+
+#titleLocation p:nth-child(2){
+    color : white; font-size : 22px;
+
+}*/
+
+
+/*
+
+4) photoSection css속성
+
+*/
+
+#photoSection{
+    background-color : #F2F2F2; height : 120vh; padding : 10vh 0 20vh 0;
+}
+
+#phototitleArea{
+    height : 15%; width : 50%; margin: 0 auto;
+}
+
+.phototitleContents:last-child{
+    font-size : 22px;
+}
+
+#photosArea{
+    height : 85%; width : 75%; margin : 0 auto;
+}
+
+.photo{
+    width : 47%; height : 47%; float : left; padding : 14px; background-color: white;
+}
+
+#photosArea div:nth-child(1){
+    margin-right : 3%; margin-bottom: 3%;
+}
+
+#photosArea div:nth-child(2){
+    margin-left : 3%; margin-bottom: 3%;
+}
+
+#photosArea div:nth-child(3){
+    margin-right : 3%; margin-top: 3%;
+}
+
+#photosArea div:nth-child(4){
+   margin-left : 3%; margin-top: 3%;
+}
+
+
+
+/*
+======================================================  footer 영역  =====================================================================
+
+- contactOnline css속성
+
+*/
+
+#contactOnline{
+    background-color: black; height : 30vh; padding : 10vh 0;
+}
+
+#contactLocation{
+    text-align: center; position: relative; top : 50%; left : 50%; transform: translate(-50%, -50%);
+}
+
+.snsImg{
+    font-size : 1.5rem; color : #999999;
+}
+
+.snsImg i:not(:first-child){
+    margin-left : 13px;
+}
+
+#copyrightLocation{
+    margin-top: 45px;
+}
+
+#copyright{
+    font-size : 12px; color : #bbb;
+}
