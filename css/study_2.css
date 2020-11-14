@@ -11,7 +11,7 @@
     .contentsProperty p{
         font-size : 0;
     }
-}
+} 
 
 /*
  미디어쿼리로 글자 튀어나오는거 해결하려 했으나, 잘되지 않음.
@@ -46,11 +46,11 @@
     color : white;
 }
 
-#menubar-Location{
+#menubarLocation{
     position: absolute; top : 50%; right : -15px; transform: translate(-50%,-50%);
 }
 
-#menubar-Location a{
+#menubarLocation a{
     color : white; text-decoration: none;
 }
 
@@ -110,8 +110,23 @@
     background-color :white; width : 47%;  height : 100%; margin-right : 3%; float : left;
 }
 
+#introPhoto-1 .imgProperty{
+    background : url(../images/photo-2.png); alt : "첫번째 photo";
+}
+
 #introPhoto-2{
     background-color :white; width : 47%;  height : 100%; margin-left : 3%; float : left;
+}
+
+#introPhoto-2 .imgProperty{
+    background : url(../images/photo-3.png); alt : "두번째 photo";
+}
+
+
+/* imgProperty 공통 속성 */
+.imgProperty{
+     width : 100%; height : 40%; 
+     
 }
 
 .contentsArea{

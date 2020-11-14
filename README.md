@@ -4,5 +4,6 @@
 - study_1[20.10.28] : 첫번째 과제(HTML 레이아웃 잡기) / pull request를 만들고, main 브랜치에 study_1 브랜치를 Merge.
 - study_2[20.11.02] : 두번째 과제(HTML 컨텐츠 추가) / 첫번째 Commit, Push.
 - study_2[20.11.06] : 두번째 과제(HTML 컨텐츠 추가 : 내용 보완) / 두번째 Commit, Push.
-- study_2[20.11.07] : 두번째 과제(HTML 컨텐츠 추가 : 내용 수정) / 3번째 Commit, Push.
-- study_2[20.11.14] : 두번째 과제(HTML 컨텐츠 추가 : 1. 레이아웃 위치수정 2. css 파일에 css속성 넣기) / 4번째 Commit, Push.
+- study_2[20.11.07] : 두번째 과제(HTML 컨텐츠 수정 : 내용 수정) / 3번째 Commit, Push.
+- study_2[20.11.14] : 두번째 과제(HTML 컨텐츠 수정 : 1. 레이아웃 위치수정 2. css 파일에 css속성 넣기) / 4번째 Commit, Push.
+- study_2[20.11.14] : 두번째 과제(HTML 컨텐츠 수정 : 1. ID변수명 규칙설정(lowerCamelcase 방식) 2. 이미지 attribute css파일에 따로 추가 / 5번째 Commit, Push.
