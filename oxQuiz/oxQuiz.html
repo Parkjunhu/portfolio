@@ -1,0 +1,95 @@
+<html>
+    <head>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.js" integrity="sha256-DrT5NfxfbHvMHux31Lkhxg42LY6of8TaYyK50jnxRnM=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/style.css">
+   </head>
+    <body>
+        <div id="fingerprint">
+            <p><< 8문제 OX 퀴즈를 맞춰보세요!! >> 맞은 개수 : <span>6/8</span></p> 
+         </div>
+      
+         
+        <div id="question">
+            
+        </div>
+
+
+         <div id="selectArea">
+            <div id="answer" onclick="alert('맞았습니다.');">
+               O
+            </div>
+            <div id="wrongAnswer" onclick="alert('틀렸습니다.');">
+               X
+            </div>
+         </div>
+    </body>
+
+
+
+    <script>
+
+      let questions = [
+
+         {
+            question : '인간은 동물이다.',
+            answer : true,
+            score : 3
+         },
+         {
+            question : '손흥민은 야구선수다.',
+            answer : false,
+            score : 3
+         },
+         {
+            question : '박지성은 2005년에 PSV에서 맨체스터 유나이티드로 이적하였다.',
+            answer : true,
+            score : 5
+         },
+         {
+            question : '양배추는 공복혈당을 낮추는데 도움이 되는 채소이다.',
+            answer : true,
+            score : 6
+         },
+         {
+            question : '고구려는 백제 장군 김유신에게 멸망하였다.',
+            answer : false,
+            score : 4
+         },
+         {
+            question : '테란 유닛의 벌처 마인 데미지는 100이다.',
+            answer : false,
+            score : 3
+         },
+         {
+            question : '이영호의 주종은 테란이다.',
+            answer : true,
+            score : 4
+         },
+         {
+            question : '고양이는 그루밍을 하는 동물이다.',
+            answer : true,
+            score : 4
+         }
+
+
+      ] 
+
+      for(let i = 0; i < questions.length; i++){
+         let sign = '';
+         if(questions[i].answer === true){
+            sign = "O";
+         } else{
+            sign = "X";
+         }
+          
+            $('#question').append(`${i+1}번 문제 : ${questions[i].question}(${questions[i].score}점) / 정답 ${sign}<br>`);
+      }
+
+
+   </script>  
+
+
+
+   
+</html>
