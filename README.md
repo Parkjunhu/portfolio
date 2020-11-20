@@ -10,4 +10,7 @@
 
 - oxQuiz[20.11.18] : 3번째 과제(OX퀴즈) / 1번째 Commit, Push
 - oxQuiz[20.11.20] : 3번째 과제(OX퀴즈 내용수정 by pr리뷰) / 2번째 Commit, Push
+<<<<<<< HEAD
 - oxQuiz[20.11.21] : 3번째 과제(OX퀴즈 html파일 경로수정) / 3번째 Commit, Push
+=======
+>>>>>>> b75ecdb6fbc0238b1f1aa1ce70db133c250a6a4c
