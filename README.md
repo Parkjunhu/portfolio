@@ -9,11 +9,6 @@
 - study_layout[20.11.14] : 두번째 과제(HTML 컨텐츠 수정 : 1. ID변수명 규칙설정(lowerCamelcase 방식) 2. 이미지 attribute css파일에 따로 추가 / 5번째 Commit
 
 - oxQuiz[20.11.18] : 3번째 과제(OX퀴즈) / 1번째 Commit, Push
-<<<<<<< HEAD
 - oxQuiz[20.11.20] : 3번째 과제(OX퀴즈 내용수정 by pr리뷰) / 2번째 Commit, Push
-<<<<<<< HEAD
 - oxQuiz[20.11.21] : 3번째 과제(OX퀴즈 html파일 경로수정) / 3번째 Commit, Push
-=======
->>>>>>> b75ecdb6fbc0238b1f1aa1ce70db133c250a6a4c
-=======
->>>>>>> 7f4d98870f2ace169b666dbb381b92583e717e8f
+
