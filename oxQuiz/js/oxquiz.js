@@ -44,30 +44,86 @@ let questions = [
    
    
 ]; 
+   
 
-  
-
-   const answer = document.getElementById('answer');  // O버튼 ID값
-   const wrongAnswer = document.getElementById('wrongAnswer'); //X버튼 ID값
+   let answer;
+   let wrongAnswer;
    let totalScore = 0;  // 총점
    let correctCount = 0; // 맞은 개수
    let number = 0; // 문제 번호
    let checkAnswer = []; // checkAnswer : O,X 버튼 체크 판별 
+   let timer; // 전체 시간
+   let interval; // 시간 단위
+   let timerId;
    
-   answer.addEventListener("click", buttonEventFunc); // O버튼 이벤트리스너 등록
-   wrongAnswer.addEventListener("click", buttonEventFunc); // X버튼 이벤트리스너 등록
-   $('#question').html(`${number+1}번 문제 : ${questions[number].question} (${questions[number].score}점)`); // 첫 번째 문제 세팅
+
+   $(document).ready(() => {
+      answer = document.getElementById('answer');  // O버튼 ID값
+      wrongAnswer = document.getElementById('wrongAnswer'); //X버튼 ID값
+      timerId = document.getElementById('timer'); // timer ID값
+         
+      answer.addEventListener("click", () => { // O버튼 이벤트리스너 등록
+         buttonEventFunc(true);
+      }); 
+      wrongAnswer.addEventListener("click", () => { // X버튼 이벤트리스너 등록
+         buttonEventFunc(false);
+      }); 
+     
+      showScreen(number);  // 문제 호출
+
+   }); 
+  
+   
+ 
+   function correctAnimate() {
+      console.log($('#answer'));
+      $( '#answer' ).animate( {
+         width: '100%'
+       }, 2000, 'swing', () => {
+         $( '#answer' ).animate( {
+            width: '50%'
+          }, 2000, 'swing')    
+       } );
+     
+   }
+   
+   function Interval(){
+      let checkCount = 3;
+      console.log(timerId.id);
+      interval = setInterval(() => {
+         checkCount--;
+         
+      }, 1000);
+
+   }
+
+   function timerCheck(){
+      
+      Interval();
+      timer = setTimeout(() => {
+         alert('타임아웃 되었습니다.');
+         clearInterval(interval);
+         number++;
+         showScreen(number);
+      }, 3000);
+   }
 
    
+   
+
+  
    // O,X버튼 이벤트 리스너 함수
-   function buttonEventFunc(){
-      if(this.id === 'answer'){  // 사용자가 O버튼을 클릭했다면
+   function buttonEventFunc(clientAnswer){
+      clearInterval(interval);
+      clearTimeout(timer);
+      if(clientAnswer === true){  // 사용자가 O버튼을 클릭했다면
          if(questions[number].answer === 'O'){ // 정답이 O라면
             alert('정답입니다!');
             checkAnswer.push('O');  // 사용자가 체크한 O 값을 checkAnswer 배열에 push(추가) = 요소 추가
             totalScore = totalScore + questions[number].score;
             correctCount++;
             number++;
+            //correctAnimate();
             showScreen(number);
    
          } else{
@@ -78,7 +134,7 @@ let questions = [
          }
       
 
-      } else if(this.id === 'wrongAnswer'){ // 사용자가 X버튼을 클릭했다면
+      } else if(clientAnswer === false){ // 사용자가 X버튼을 클릭했다면
          if(questions[number].answer === 'X'){ // 정답이 X라면
             alert('정답입니다!');
             checkAnswer.push('X'); // 사용자가 체크한 X 값을 checkAnswer 배열에 push(추가) = 요소 추가 / Push는 자동으로 인덱스번호를 증가 시켜준다.
@@ -132,6 +188,7 @@ let questions = [
       
       else{ // 다음문제가 있을 때(문제 한 개씩 출력)
          $('#question').html(`${number+1}번 문제 : ${questions[number].question} (${questions[number].score}점)`);
+         timerCheck();
       }
       
       

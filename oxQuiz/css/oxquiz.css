@@ -37,7 +37,7 @@ body{
     float : left;
     background-color : blue;
     width : 30vw; height : 45vh;
-    margin-right : 15vw;
+   
     text-align: center; 
     line-height: 45vh;
     font-size : 200px;
@@ -50,12 +50,17 @@ body{
     color : blue;
 }
 
+#timer{
+    float : left;
+    width : 30vw; height : 45vh;
+    background-color : yellow;
+}
 
 #wrongAnswer{
     float : left;
     background-color : red;
     width : 30vw; height : 45vh;
-    margin-left : 15vw;
+    
     text-align: center;
     line-height: 45vh;
     font-size : 200px;
