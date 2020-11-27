@@ -1,4 +1,5 @@
 
+// 문제 항목
 let questions = [
 
    {
@@ -46,21 +47,19 @@ let questions = [
 ]; 
    
 
-   let answer;
-   let wrongAnswer;
+   let answer; // O버튼
+   let wrongAnswer; // X버튼
+   let menubarItem; // menu 버튼
    let totalScore = 0;  // 총점
    let correctCount = 0; // 맞은 개수
    let number = 0; // 문제 번호
    let checkAnswer = []; // checkAnswer : O,X 버튼 체크 판별 
    let timer; // 전체 시간
    let interval; // 시간 단위
-   let timerId;
-   
 
    $(document).ready(() => {
       answer = document.getElementById('answer');  // O버튼 ID값
       wrongAnswer = document.getElementById('wrongAnswer'); //X버튼 ID값
-      timerId = document.getElementById('timer'); // timer ID값
          
       answer.addEventListener("click", () => { // O버튼 이벤트리스너 등록
          buttonEventFunc(true);
@@ -68,31 +67,62 @@ let questions = [
       wrongAnswer.addEventListener("click", () => { // X버튼 이벤트리스너 등록
          buttonEventFunc(false);
       }); 
+
+      
+      $('.menubarItem li').on("click", () => {
+         $('.menubarItem li').removeClass('selected');
+         $(this).addClass('selected');
+      }); // 각각의 li 메뉴 클릭했을 때 선택된 메뉴만 표시되도록 구현 하는게 쉽지 않다
+               // * this 
+
+
+         //   $('.menubar-item li:nth-child(1)').on('click', () => {
+
+         //    $('.menubar-item li:nth-child(1)').addClass("selected");
+            
+         //   });
+         
+      
      
       showScreen(number);  // 문제 호출
+
+
 
    }); 
   
    
  
-   function correctAnimate() {
-      console.log($('#answer'));
-      $( '#answer' ).animate( {
-         width: '100%'
-       }, 2000, 'swing', () => {
-         $( '#answer' ).animate( {
-            width: '50%'
-          }, 2000, 'swing')    
-       } );
+   // function correctAnimate() {
+   //    console.log($('#answer'));
+   //    $( '#answer' ).animate( {
+   //       width: '100%'
+   //     }, 2000, 'swing', () => {
+   //       $( '#answer' ).animate( {
+   //          width: '50%'
+   //        }, 2000, 'swing')    
+   //     } );
      
-   }
+   // }
+
+
    
    function Interval(){
-      let checkCount = 3;
-      console.log(timerId.id);
+      let checkCount = 4;
+      $('#timer').css('color', 'black');
+      $('#timer').html(checkCount+' 초');
+      
       interval = setInterval(() => {
          checkCount--;
-         
+         if(checkCount > 3){
+            $('#timer').html(checkCount+' 초');
+         } else if(checkCount > 0 && checkCount <= 3){ // 3초 남았을 때 깜빡이는 애니메이션 추가
+            $('#timer').html(checkCount+' 초');
+            $('#timer').css('color', 'red');
+            $('#timer').addClass('timerAnimation'); 
+         } else if(checkCount === 0){
+            $('#timer').html('<font size="14px" color="white">Time over</font>');
+         }
+   
       }, 1000);
 
    }
@@ -101,11 +131,14 @@ let questions = [
       
       Interval();
       timer = setTimeout(() => {
+         
          alert('타임아웃 되었습니다.');
          clearInterval(interval);
+         $('#timer').removeClass('timerAnimation');
          number++;
          showScreen(number);
-      }, 3000);
+      }, 4020);
+
    }
 
    
@@ -116,6 +149,7 @@ let questions = [
    function buttonEventFunc(clientAnswer){
       clearInterval(interval);
       clearTimeout(timer);
+      $('#timer').removeClass('timerAnimation'); //O 또는 X를 눌러 애니메이션 클래스를 제거해도 효과는 여전히 끝날때 까지 계속. 해결X
       if(clientAnswer === true){  // 사용자가 O버튼을 클릭했다면
          if(questions[number].answer === 'O'){ // 정답이 O라면
             alert('정답입니다!');
@@ -123,7 +157,6 @@ let questions = [
             totalScore = totalScore + questions[number].score;
             correctCount++;
             number++;
-            //correctAnimate();
             showScreen(number);
    
          } else{
@@ -162,22 +195,27 @@ let questions = [
       
       if(number === questions.length){  // 다음문제가 없을 때(전체 문제 출력)
          alert('모든 문제가 끝났습니다!');
+         $('#menubar').remove(); // 메뉴바 제거
+         $('#fingerprint').css('width','100vw'); 
          $('#question').empty(); // question에 있는 내용 제거
          $('#selectArea').remove(); // OX 버튼 영역 제거
+        
          answer.removeEventListener("click", buttonEventFunc); // 이벤트리스너 제거
          wrongAnswer.removeEventListener("click", buttonEventFunc); // 이벤트리스너 제거
          $('#fingerprint p').html('<< 정답 확인 >>');
-         $('#question').css({'font-size' : '20px', 'line-height' : '7vh', 'height' : '70vh', 'font-family' : 'Quicksand, sans-serif'}); // 글자크기, 글자간격, 문제영역 설정
-         $('#total').css({'display' : 'block', 'background-color' : 'black', 'position' : 'absolute'}); // 총점, 맞은 개수 영역 값
-         $('#totalResult').css({'font-size' : '24px','color' : 'yellow', 'text-align' : 'center', 'position' : 'relative',  // // 총점, 맞은 개수 위치 값
-         'top' : '50%', 'left' : '50%', 'transform' : 'translate(-50%, -50%)'});
+         $('#question').css({'height' : '55vh', 'line-height' : '5vh', 'font-size' : '20px'});
+         $('#total').css({'display' : 'block'});
+
+         // 글자크기, 글자간격, 문제영역 설정
+        
+
 
         for(let i = 0; i < questions.length; i++){ // 전체 문제 출력
             
             if(checkAnswer[i] === questions[i].answer){
-               $('#question').append(`${i+1}번 문제 : ${questions[i].question} (${questions[i].score}점) / 정답은 ${questions[i].answer}이고 고른답은 ${checkAnswer[i]} / 맞았습니다.</br>`);
+               $('#question').append(`Quiz ${i+1} : ${questions[i].question} ( ${questions[i].score}점 ) / 정답은 ${questions[i].answer}이고 고른답은 ${checkAnswer[i]} / 맞았습니다.</br>`);
             } else{
-               $('#question').append(`${i+1}번 문제 : ${questions[i].question} (${questions[i].score}점) / 정답은 ${questions[i].answer}이고 고른답은 ${checkAnswer[i]} / 틀렸습니다.</br>`);
+               $('#question').append(`Quiz ${i+1} : ${questions[i].question} ( ${questions[i].score}점 ) / 정답은 ${questions[i].answer}이고 고른답은 ${checkAnswer[i]} / 틀렸습니다.</br>`);
             }
             
          }
@@ -187,7 +225,7 @@ let questions = [
       } 
       
       else{ // 다음문제가 있을 때(문제 한 개씩 출력)
-         $('#question').html(`${number+1}번 문제 : ${questions[number].question} (${questions[number].score}점)`);
+         $('#question').html(`Quiz ${number+1} : ${questions[number].question} ( ${questions[number].score}점 )`);
          timerCheck();
       }
       

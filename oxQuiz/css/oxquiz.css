@@ -1,81 +1,161 @@
-body{
+*{
+    box-sizing: border-box;
+}
 
-    background-image: url(../images/quiz.png);
-   
-   
+body{
+    background-color : #EAEAEA;
+}
+
+#headerArea{
+    width : 100vw; height : 25vh;
+    background-color : #353535;
+}
+
+#menubar{
+    float : left;
+    width : 10vw; height : 25vh;
+    background-color : black;
+
+
+}
+
+
+.menubarItem li:nth-child(1){
+    background-color: orange;
+    color : black;
+}
+
+.selected{
+    background-color : green;
+}
+
+.menubarItem li{
+    height : 5vh;
+    text-align: center;
+    line-height: 5vh;
+    border-bottom: 3px solid white;
+    color : white;
+}
+
+.menubarItem li:hover{
+    font-weight: bold;
 }
 
 
 #fingerprint{
+    float : left;
     font-family: 'Nanum Gothic Coding', monospace;
-    width : 100vw; height : 10vh;
-    background-color: black;   
+    width : 90vw; height : 25vh;
     color : white;
     text-align: center;
-    font-size : 20px;
-    line-height: 10vh;
+    font-size : 40px;
+    line-height: 25vh;
+
 }
 
 
 #question{
+    width : 100vw; height: 35vh;
     font-family: 'Quicksand', sans-serif;
-    background-color: greenyellow; 
-    width: 100vw; height: 25vh;
-    text-align : center;
+    text-align: center;
+    background-color : greenyellow;
     display : table-cell;
     vertical-align: middle;
-    font-size : 40px;
+    font-size : 50px;
+    
 }
+
 
 #selectArea{
     
-    width: 90vw; height: 45vh;
-    margin : auto auto; margin-top : 10vh; margin-bottom: 10vh;
+    width: 70vw; height: 30vh;
+    margin : auto auto; margin-top : 5vh; margin-bottom: 5vh;
+    
 }
 
 #answer{
     float : left;
-    background-color : blue;
-    width : 30vw; height : 45vh;
-   
+    width : 20vw; height : 30vh;
+    border : 20px solid #a6a6a6;
     text-align: center; 
-    line-height: 45vh;
-    font-size : 200px;
-    border-radius: 50%;
-    
+    line-height: 23vh;
+    font-size : 150px;
+    font-weight: bold;
+    border-radius: 15%;
 }
 
 #answer:hover{
     background-color : #F2F2F2;
-    color : blue;
+    color : orange;
 }
 
 #timer{
     float : left;
-    width : 30vw; height : 45vh;
-    background-color : yellow;
+    width : 20vw; height : 30vh;
+    border : 5px solid #a6a6a6;
+    font-size : 100px;
+    font-weight: bold;
+    text-align : center;
+    line-height: 28vh;
+    margin : 0 5vw;
+    border-radius: 50%;
+    /* background: radial-gradient( farthest-corner at 30% 20%, yellow, red, brown ); */
+    background: linear-gradient(45deg, #2F9D27,#BCE55C);
+
+    
+}
+
+.timerAnimation{
+    animation-name: blink;
+    animation-iteration-count: 6;
+    animation-duration: 0.5s;
+    animation-direction: alternate;
+    animation-timing-function: ease-in-out;
+    
+}
+
+@keyframes blink{
+    from { 
+      opacity: 1.0;
+    }
+    
+    to { 
+      opacity: 0.0; 
+    }
+  
 }
 
 #wrongAnswer{
     float : left;
-    background-color : red;
-    width : 30vw; height : 45vh;
-    
+    width : 20vw; height : 30vh;
+    border : 20px solid #a6a6a6;
     text-align: center;
-    line-height: 45vh;
-    font-size : 200px;
-    border-radius: 50%;
+    line-height: 23vh;
+    font-size : 150px;
+    font-weight: bold;
+    border-radius: 10%;
     
     
 }
 
 #wrongAnswer:hover{
     background-color : #F2F2F2;
-    color : red;
+    color : orange;
 }
 
 #total{
     width : 100vw; height : 20vh;
+    background-color : #353535;
     display : none;
- 
+    position: relative;
+    
+}
+
+#totalResult{
+    color : yellow;
+    text-align: center;
+    font-size: 25px;
+    position : absolute;
+    top : 50%; left : 50%;
+    transform : translate(-50%, -50%);
 }
