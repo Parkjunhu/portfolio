@@ -56,41 +56,26 @@ let questions = [
    let checkAnswer = []; // checkAnswer : O,X 버튼 체크 판별 
    let timer; // 전체 시간
    let interval; // 시간 단위
+   let value; // 진행바 값
 
    $(document).ready(() => {
       answer = document.getElementById('answer');  // O버튼 ID값
       wrongAnswer = document.getElementById('wrongAnswer'); //X버튼 ID값
-         
+      value = document.getElementById('progressBar').value;
       answer.addEventListener("click", () => { // O버튼 이벤트리스너 등록
          buttonEventFunc(true);
+        
       }); 
       wrongAnswer.addEventListener("click", () => { // X버튼 이벤트리스너 등록
          buttonEventFunc(false);
+         
       }); 
 
-      
-      $('.menubarItem li').on("click", () => {
-         $('.menubarItem li').removeClass('selected');
-         $(this).addClass('selected');
-      }); // 각각의 li 메뉴 클릭했을 때 선택된 메뉴만 표시되도록 구현 하는게 쉽지 않다
-               // * this 
 
-
-         //   $('.menubar-item li:nth-child(1)').on('click', () => {
-
-         //    $('.menubar-item li:nth-child(1)').addClass("selected");
-            
-         //   });
-         
-      
-     
       showScreen(number);  // 문제 호출
-
-
 
    }); 
   
-   
  
    // function correctAnimate() {
    //    console.log($('#answer'));
@@ -107,7 +92,7 @@ let questions = [
 
    
    function Interval(){
-      let checkCount = 4;
+      let checkCount = 10;
       $('#timer').css('color', 'black');
       $('#timer').html(checkCount+' 초');
       
@@ -121,6 +106,7 @@ let questions = [
             $('#timer').addClass('timerAnimation'); 
          } else if(checkCount === 0){
             $('#timer').html('<font size="14px" color="white">Time over</font>');
+           
          }
    
       }, 1000);
@@ -136,11 +122,14 @@ let questions = [
          clearInterval(interval);
          $('#timer').removeClass('timerAnimation');
          number++;
+         value++;
+         console.log(value);
          showScreen(number);
-      }, 4020);
+      }, 10020);
 
    }
 
+   
    
    
 
@@ -152,34 +141,42 @@ let questions = [
       $('#timer').removeClass('timerAnimation'); //O 또는 X를 눌러 애니메이션 클래스를 제거해도 효과는 여전히 끝날때 까지 계속. 해결X
       if(clientAnswer === true){  // 사용자가 O버튼을 클릭했다면
          if(questions[number].answer === 'O'){ // 정답이 O라면
-            alert('정답입니다!');
+            //alert('정답입니다!');
             checkAnswer.push('O');  // 사용자가 체크한 O 값을 checkAnswer 배열에 push(추가) = 요소 추가
             totalScore = totalScore + questions[number].score;
             correctCount++;
+            value++;
+            console.log(value);
             number++;
             showScreen(number);
    
          } else{
-            alert('O를 선택하셨으나 정답은 X입니다.');
+            //alert('O를 선택하셨으나 정답은 X입니다.');
             checkAnswer.push('O');
             number++;
+            value++;
+            console.log(value);
             showScreen(number);
          }
       
 
       } else if(clientAnswer === false){ // 사용자가 X버튼을 클릭했다면
          if(questions[number].answer === 'X'){ // 정답이 X라면
-            alert('정답입니다!');
+            //alert('정답입니다!');
             checkAnswer.push('X'); // 사용자가 체크한 X 값을 checkAnswer 배열에 push(추가) = 요소 추가 / Push는 자동으로 인덱스번호를 증가 시켜준다.
             totalScore = totalScore + questions[number].score;
             correctCount++;
             number++;
+            value++;
+            console.log(value);
             showScreen(number);
    
          } else{
-            alert('X를 선택하셨으나 정답은 O입니다.');
+            //alert('X를 선택하셨으나 정답은 O입니다.');
             checkAnswer.push('X');
             number++;
+            value++;
+            console.log(value);
             showScreen(number);
          }
          
@@ -195,8 +192,12 @@ let questions = [
       
       if(number === questions.length){  // 다음문제가 없을 때(전체 문제 출력)
          alert('모든 문제가 끝났습니다!');
-         $('#menubar').remove(); // 메뉴바 제거
-         $('#fingerprint').css('width','100vw'); 
+         $('#progressArea').remove(); // 메뉴바 제거
+         $('#fingerprint').css('width','90vw');
+         $('#goBackButton button').css({'display' : 'block'}); 
+         $('#goBackButton button').on("click", () => {
+            location.href='../html/index.html';
+         });
          $('#question').empty(); // question에 있는 내용 제거
          $('#selectArea').remove(); // OX 버튼 영역 제거
         
@@ -226,7 +227,7 @@ let questions = [
       
       else{ // 다음문제가 있을 때(문제 한 개씩 출력)
          $('#question').html(`Quiz ${number+1} : ${questions[number].question} ( ${questions[number].score}점 )`);
-         timerCheck();
+         //timerCheck();
       }
       
       

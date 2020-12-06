@@ -12,4 +12,4 @@
 - oxQuiz[20.11.20] : 3번째 과제(OX퀴즈 내용수정 by pr리뷰) / 2번째 Commit, Push
 - oxQuiz[20.11.21] : 3번째 과제(OX퀴즈 html파일 경로수정) / 3번째 Commit, Push
 - oxQuiz[20.11.28] : 3번째 과제(OX퀴즈 : 1. 제한시간 추가 2.애니메이션 효과 추가) / 4번째 Commit, Push
-
+- oxQuiz[20.12.06] : 3번째 과제(OX퀴즈 : 목차페이지 추가) / 5번째 Commit, Push

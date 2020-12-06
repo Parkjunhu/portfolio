@@ -10,17 +10,16 @@
     <body> 
       
       <header id="headerArea">
-         <div id="menubar">
-            <ul id="category" class="menubarItem">
-               <li class="menuTitle">퀴즈 Menu</li>
-               <li class="selected">건강상식-1</li>
-               <li>건강상식-2</li>
-               <li>질병 예방</li>
-               <li>스포츠</li>
-            </ul>
-         </div>
          <div id="fingerprint"> <!-- 문제 지문 -->
-            <p><< 8문제 OX 퀴즈를 맞춰보세요!! >></p> 
+            <p>[ 8문제 OX 퀴즈를 맞춰보세요!! ] </p>
+         </div>
+
+         <div id="progressArea">
+            <progress value="1" max="8" id="progressBar"></progress>
+         </div>
+
+         <div id="goBackButton">
+            <button>뒤로가기</button>
          </div>
       </header>
       
@@ -38,7 +37,7 @@
          </div>
          
          <div id="timer">
-            d
+   
          </div>
 
          <div id="wrongAnswer" value="X">
