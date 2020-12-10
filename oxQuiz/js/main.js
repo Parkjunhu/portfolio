@@ -56,12 +56,12 @@ let questions = [
    let checkAnswer = []; // checkAnswer : O,X 버튼 체크 판별 
    let timer; // 전체 시간
    let interval; // 시간 단위
-   let value; // 진행바 값
+   let progressValue; // 진행바 값
 
    $(document).ready(() => {
       answer = document.getElementById('answer');  // O버튼 ID값
       wrongAnswer = document.getElementById('wrongAnswer'); //X버튼 ID값
-      value = document.getElementById('progressBar').value;
+      progressValue = document.getElementById('progressBar').value;
       answer.addEventListener("click", () => { // O버튼 이벤트리스너 등록
          buttonEventFunc(true);
         
@@ -122,8 +122,8 @@ let questions = [
          clearInterval(interval);
          $('#timer').removeClass('timerAnimation');
          number++;
-         value++;
-         console.log(value);
+         progressValue = progressValue+1;
+         console.log(progressValue);
          showScreen(number);
       }, 10020);
 
@@ -145,18 +145,12 @@ let questions = [
             checkAnswer.push('O');  // 사용자가 체크한 O 값을 checkAnswer 배열에 push(추가) = 요소 추가
             totalScore = totalScore + questions[number].score;
             correctCount++;
-            value++;
-            console.log(value);
-            number++;
-            showScreen(number);
+           
    
          } else{
             //alert('O를 선택하셨으나 정답은 X입니다.');
             checkAnswer.push('O');
-            number++;
-            value++;
-            console.log(value);
-            showScreen(number);
+          
          }
       
 
@@ -166,21 +160,21 @@ let questions = [
             checkAnswer.push('X'); // 사용자가 체크한 X 값을 checkAnswer 배열에 push(추가) = 요소 추가 / Push는 자동으로 인덱스번호를 증가 시켜준다.
             totalScore = totalScore + questions[number].score;
             correctCount++;
-            number++;
-            value++;
-            console.log(value);
-            showScreen(number);
-   
+           
+
          } else{
             //alert('X를 선택하셨으나 정답은 O입니다.');
             checkAnswer.push('X');
-            number++;
-            value++;
-            console.log(value);
-            showScreen(number);
+
          }
-         
+
+        
       }
+
+      progressValue = progressValue+1;
+      console.log(progressValue);
+      number++;
+      showScreen(number);
       
    }
    
@@ -203,7 +197,7 @@ let questions = [
         
          answer.removeEventListener("click", buttonEventFunc); // 이벤트리스너 제거
          wrongAnswer.removeEventListener("click", buttonEventFunc); // 이벤트리스너 제거
-         $('#fingerprint p').html('<< 정답 확인 >>');
+         $('#fingerprint p').html('정답 확인');
          $('#question').css({'height' : '55vh', 'line-height' : '5vh', 'font-size' : '20px'});
          $('#total').css({'display' : 'block'});
 
@@ -227,7 +221,7 @@ let questions = [
       
       else{ // 다음문제가 있을 때(문제 한 개씩 출력)
          $('#question').html(`Quiz ${number+1} : ${questions[number].question} ( ${questions[number].score}점 )`);
-         //timerCheck();
+         timerCheck();
       }
       
       
