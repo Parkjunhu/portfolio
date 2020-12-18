@@ -21,17 +21,21 @@
         </article>
     </section>
         
-    <ul class="contents">
-        <li>Menu</li>
-        <li class="selected"><input type="checkbox" class="category" name="c" value="0" checked>&nbsp;&nbsp;① 건강-1</li>
-        <li><input type="checkbox" class="category" name="c" value="1">&nbsp;&nbsp;② 건강-2</li>
-        <li><input type="checkbox" class="category" name="c" value="2">&nbsp;③ 질병 예방</li>
-        <li><input type="checkbox" class="category" name="c" value="3">&nbsp;&nbsp;④ 스포츠</li>
-    </ul>
+    <form action="../html/main.html" method="get">
+        <ul class="contents">
+            <li>Menu</li>
+            <li class="selected"><input type="checkbox" class="category" name="food" value="question1-Type" checked>&nbsp;&nbsp;① 건강-1</li>
+            <li><input type="checkbox" class="category" name="body" value="question2-Type">&nbsp;&nbsp;② 건강-2</li>
+            <li><input type="checkbox" class="category" name="diseasePrevention" value="question3-Type">&nbsp;③ 질병 예방</li>
+            <li><input type="checkbox" class="category" name="sports" value="question4-Type">&nbsp;&nbsp;④ 스포츠(축구)</li>
+        </ul>
+    
+        <div class="quizStart">
+            <button type="submit" class="button">OX퀴즈 시작하기</button>
+        </div>
 
-    <div class="quizStart">
-        <a href="../html/main.html">OX퀴즈 시작하기 ➨</a>
-    </div>
+    </form>
+   
     
 </body>
 </html>

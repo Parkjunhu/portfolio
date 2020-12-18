@@ -11,39 +11,48 @@
     <body> 
       
       <header id="headerArea">
-         <div id="fingerprint"> <!-- 문제 지문 -->
-            <i class="fas fa-pencil-alt"></i>
-            <p> 8문제 OX 퀴즈를 맞춰보세요!!</p>&nbsp;&nbsp;
-            <progress value="1" max="8" id="progressBar"></progress>
-         </div>
 
+            
+         <div id="goBackButton"> <!-- 뒤로가기 / display : none -->
+            <a href="../html/index.html">← 뒤로가기</a>
+         </div> 
          
 
-         <div id="goBackButton">
-            <button>뒤로가기</button>
+         <div id="fingerprint"> <!-- 문제 지문 -->
+            <i class="fas fa-pencil-alt" id="pencil"></i>
+            <p> 8문제 OX 퀴즈를 맞춰보세요!!</p>&nbsp;&nbsp;
          </div>
+
+        
       </header>
       
-       
+       <div id="progressArea"> <!-- 진행바 표시 -->
+         <div id="progressValue">0</div><span id="percent">%</span>
+         <div id="progressBar">
+            <div id="progressFill"></div>
+         </div>
+       </div>
      
       <div id="question"> <!-- 문제 -->
          
       </div>
      
-      
-
       <div id="selectArea"> <!-- O,X 영역 및 버튼-->
-         <div id="answer" value="O">
+         <div id="answer" value="O"> <!-- O 버튼 -->
             O
          </div>
-         
+
          <div id="timer">
-   
+            
          </div>
 
-         <div id="wrongAnswer" value="X">
+         <div id="wrongAnswer" value="X"> <!-- X 버튼 -->
             X
          </div>
+      </div>
+
+      <div id="resultCheck"> <!-- 정답 확인 버튼 -->
+         정답 확인
       </div>
       
       <div id="total"> <!-- 총점 및 맞은 개수 영역-->

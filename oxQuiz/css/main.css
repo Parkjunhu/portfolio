@@ -4,8 +4,9 @@
 
 #headerArea{
     width : 100vw; height : 25vh;
-    background-color : #E7E7E7;
+    background-color :#fff8ed;
 }
+
 
 
 #fingerprint{
@@ -22,28 +23,84 @@
 
 #fingerprint p{
     display: inline;
-    color : #597587;
+    color : black;
 }
 
 
 
-#goBackButton button{
+#goBackButton{
     float : left;
     width : 10vw;
     height : 25vh;
     display : none;
-    font-size : 30px;
+    border : 2px solid yellow;
+    border-radius: 10%;
+    font-size : 25px;
+    text-align: center;
     font-weight: bold;
+    line-height: 25vh;
+    background-color: #353535;;
 }
 
+#goBackButton a{
+    text-decoration: none;
+    color : white;
+}
+
+
+#progressArea{
+    width : 100vw;
+    height : 10vh;
+    
+    position: relative;
+}
+
+#progressValue{
+    position: absolute;
+    left : 21%;  top : 50%;
+    transform : translate(-50%, -50%);
+    font-size : 30px;
+}
+
+#percent{
+    position: absolute;
+    left : 23%;  top : 50%;
+    transform : translate(-50%, -50%);
+    font-size : 30px;
+}
+
+#progressBar{
+    display : inline-block;
+    width : 800px;
+    height : 20px;
+    background-color : #e0e0e0;
+    border-radius: 10px;
+    position: absolute;
+    left : 50%; top : 50%;
+    transform : translate(-50%, -50%);
+}
+
+#progressFill{
+    
+    width : 0px;
+    height : 20px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius : 10px;
+    background-color: orange;
+    
+}
+
+
 #question{
-    width : 100vw; height: 35vh;
+    width : 100vw; height: 25vh;
+    border : 2px solid black;
     font-family: 'Quicksand', sans-serif;
     text-align: center;
-    background-color : greenyellow;
+    background-color : #fff8ed;
     display : table-cell;
     vertical-align: middle;
-    font-size : 50px;
+    font-size : 35px;
+    line-height: 7vh;
     
 }
 
@@ -51,63 +108,89 @@
 #selectArea{
     
     width: 70vw; height: 30vh;
-    margin : auto auto; margin-top : 5vh; margin-bottom: 5vh;
+    margin : 0 auto; margin-top : 5vh; margin-bottom: 5vh;
     
 }
+
+#resultCheck{
+    width: 60vw; height: 30vh;
+    margin : 0 auto; margin-top : 5vh; margin-bottom: 5vh;
+    background-color : #f57c00;
+    color : white;
+    border : 2px solid black;
+    border-radius : 100px;
+    background-color : orange;
+    display : none;
+    font-size : 80px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 30vh;
+}
+
+#resultCheck:hover{
+    opacity: 0.8;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.05), 0 6px 6px rgba(0, 0, 0, 0.1);
+}
+
+
 
 #answer{
     float : left;
     width : 20vw; height : 30vh;
-    border : 20px solid #a6a6a6;
+    border : 5px solid #a6a6a6;
     text-align: center; 
-    line-height: 23vh;
-    font-size : 150px;
+    line-height: 26vh;
+    font-size : 200px;
     font-weight: bold;
-    border-radius: 15%;
+    border-radius: 10%;
 }
 
 #answer:hover{
     color : orange;
 }
 
+
+
 #timer{
     float : left;
     width : 20vw; height : 30vh;
-    border : 5px solid #a6a6a6;
-    font-size : 100px;
-    font-weight: bold;
-    text-align : center;
-    line-height: 28vh;
     margin : 0 5vw;
-    border-radius: 50%;
-    /* background: radial-gradient( farthest-corner at 30% 20%, yellow, red, brown ); */
-    background: linear-gradient(45deg, #2F9D27,#BCE55C);
-
-    
+     background-color : #fff8ed;
+     border : 2px solid black;
+     border-radius: 50em;
+     text-align: center;
+     font-size : 70px;
+     line-height: 26vh;
 }
 
-.timerAnimation{
-    animation-name: spin;
-    animation-iteration-count: 3;
-    animation-duration: 1s;
-    /* animation-direction: alternate;
+
+
+.timerAnimation {
+    animation-name: blink;
+    animation-iteration-count: 6;
+    animation-duration: 0.5s;
+    animation-direction: alternate;
     animation-timing-function: ease-in-out;
-    transform: rotate( 45deg ); */
 }
 
-@keyframes spin{
-    from { transform: rotate(0deg); }
-    to { transform: rotate(359deg); }
-  
+@keyframes blink{
+    from { 
+      opacity: 1.0;
+    }
+
+    to { 
+      opacity: 0.0; 
+    }
 }
+
 
 #wrongAnswer{
     float : left;
     width : 20vw; height : 30vh;
-    border : 20px solid #a6a6a6;
+    border : 5px solid #a6a6a6;
     text-align: center;
-    line-height: 23vh;
-    font-size : 150px;
+    line-height: 25vh;
+    font-size : 200px;
     font-weight: bold;
     border-radius: 10%;
     
