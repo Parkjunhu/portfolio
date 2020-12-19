@@ -1,0 +1,69 @@
+<html>
+    <head>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@700&display=swap" rel="stylesheet">  
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap" rel="stylesheet">
+    <script src="../js/main.js"></script>
+   </head>
+    <body> 
+      
+      <header id="headerArea">
+
+            
+         <div id="goBackButton"> <!-- 뒤로가기 / display : none -->
+            <a href="../html/index.html">← 뒤로가기</a>
+         </div> 
+         
+
+         <div id="fingerprint"> <!-- 문제 지문 -->
+            <i class="fas fa-pencil-alt" id="pencil"></i>
+            <p> 8문제 OX 퀴즈를 맞춰보세요!!</p>&nbsp;&nbsp;
+         </div>
+
+        
+      </header>
+      
+       <div id="progressArea"> <!-- 진행바 표시 -->
+         <div id="progressValue">0</div><span id="percent">%</span>
+         <div id="progressBar">
+            <div id="progressFill"></div>
+         </div>
+       </div>
+     
+      <div id="question"> <!-- 문제 -->
+         
+      </div>
+     
+      <div id="selectArea"> <!-- O,X 영역 및 버튼-->
+         <div id="answer" value="O"> <!-- O 버튼 -->
+            O
+         </div>
+
+         <div id="timer">
+            
+         </div>
+
+         <div id="wrongAnswer" value="X"> <!-- X 버튼 -->
+            X
+         </div>
+      </div>
+
+      <div id="resultCheck"> <!-- 정답 확인 버튼 -->
+         정답 확인
+      </div>
+      
+      <div id="total"> <!-- 총점 및 맞은 개수 영역-->
+         <div id="totalResult"></div>
+      </div>
+      
+      
+      
+   </body>
+
+   
+    
+
+</html>

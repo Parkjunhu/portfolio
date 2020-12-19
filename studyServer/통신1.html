@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="../css/reset.css">
+        <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@700&display=swap" rel="stylesheet">  
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap" rel="stylesheet">
+   </head>
+    <body> 
+        <div id="result">
+            <input type="text"><button id='search'>성공요청</button><button id='search22'>실패요청</button>
+        </div>
+        
+      
+   </body>
+
+   <script>
+    let result = 'a';
+    let targetUrl;
+
+    $('#search').on('click', () => {
+        targetUrl= "http://apis.data.go.kr/B552584/LezShotSvc/getLezShotInfo";
+        requestApi();
+    })
+
+    $('#search22').on('click', () => {
+        targetUrl= 'http://www.naver.com'
+        requestApi();
+    })
+    function requestApi() {
+        result = $.ajax({
+        method: "GET", // GET, POST
+        url: "http://localhost:9060/proxy?ServiceKey=Ddv9q8x90wYIOFO8WXiDq8yzyO3iGepCU%2Fz%2BfsLTmTa8m%2BaK2Z8RL3%2Fep6UmNGeveadJRdRZjIokkMfY0FtXpQ%3D%3D", // 요청을 할 서버의 주소 
+        
+        dataType: "json", 
+        data: { 
+            targetUrl,
+        },
+        async: false
+    })   // crud - create(글쓰기,회원가입,주문요청) ,  read(상품보기,게시판보기,내정보보기,내포인트확인),  update(게시판수정,상품수정,댓글수정),  delete(댓글삭제,게시판글삭제, 회원탈퇴)
+
+    const data = JSON.parse(result.responseText);
+    console.log(data);
+    console.log(data.items);
+    $('#result').text(data.items[0].lawAddressCD);
+    }
+   
+   </script>
+</html>

@@ -1,0 +1,22 @@
+{
+  "extends": ["airbnb-base"],
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "script"
+  },
+  "plugins": ["jest"],
+  "env": {
+    "jest": true
+  },
+  "rules": {
+    "max-len": [
+      "warn",
+      {
+        "code": 250
+      }
+    ],
+    "consistent-return": 0,
+    "import/no-extraneous-dependencies": ["error", { "packageDir": "./" }],
+    "no-underscore-dangle": 0
+  }
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="../js/index.js"></script>
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="contentsHeader">
+        <img id="indexImage" src="../images/index.png" alt="">
+    </div>
+
+    <section id="quizTitleArea">
+        <article id="quizTitle">
+            <p>OX 퀴즈</p>
+        </article>
+    </section>
+        
+    <form action="../html/main.html" method="get">
+        <ul class="contents">
+            <li>Menu</li>
+            <li class="selected"><input type="checkbox" class="category" name="food" value="question1-Type" checked>&nbsp;&nbsp;① 건강-1</li>
+            <li><input type="checkbox" class="category" name="body" value="question2-Type">&nbsp;&nbsp;② 건강-2</li>
+            <li><input type="checkbox" class="category" name="diseasePrevention" value="question3-Type">&nbsp;③ 질병 예방</li>
+            <li><input type="checkbox" class="category" name="sports" value="question4-Type">&nbsp;&nbsp;④ 스포츠(축구)</li>
+        </ul>
+    
+        <div class="quizStart">
+            <button type="submit" class="button">OX퀴즈 시작하기</button>
+        </div>
+
+    </form>
+   
+    
+</body>
+</html>
